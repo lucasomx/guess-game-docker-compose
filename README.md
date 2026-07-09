@@ -38,7 +38,7 @@ Tecnologias utilizadas
 - PostgreSQL 16
 - NGINX
 
-
+```bash
 Estrutura do projeto
 
 guess_game/
@@ -52,7 +52,7 @@ guess_game/
 ├── requirements.txt
 ├── run.py
 └── README.md
-
+```
 
 
 Componentes
