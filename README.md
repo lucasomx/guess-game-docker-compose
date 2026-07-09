@@ -124,6 +124,7 @@ permitindo que os dados permaneçam disponíveis mesmo após reinicializações 
 Clonar o repositório:
 
 git clone https://github.com/lucasomx/guess-game-docker-compose.git
+
 cd guess-game-docker-compose
 
 Construir e iniciar os containers:
@@ -131,6 +132,7 @@ Construir e iniciar os containers:
 docker compose up --build -d --scale backend=3
 
 Para encerrar o ambiente:
+
 docker compose down
 
 
