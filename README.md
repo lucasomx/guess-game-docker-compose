@@ -4,7 +4,7 @@
 O objetivo foi conteinerizar uma aplicação completa utilizando Docker Compose, composta por um frontend React, um backend Flask, um banco de dados PostgreSQL e um servidor NGINX atuando como proxy reverso.
 
 ```bash
-Arquitetura
+Arquitetura da aplicação
 
 
                   Browser
@@ -141,15 +141,17 @@ Verificar os containers:
 
 docker compose ps
 
-Backend:
-
-curl http://localhost:5000/health
-
-Proxy reverso:
+Verificar o proxy reverso e a comunicação com o backend:
 
 curl http://localhost:8080/api/health
 
-Frontend:
+Resposta esperada:
+
+status: ok
+
+Verificar o Frontend:
+
+Abrir no navegador:
 
 http://localhost:8080
 
