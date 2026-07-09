@@ -3,8 +3,7 @@
 
 O objetivo foi conteinerizar uma aplicação completa utilizando Docker Compose, composta por um frontend React, um backend Flask, um banco de dados PostgreSQL e um servidor NGINX atuando como proxy reverso.
 
-
-
+```bash
 Arquitetura
 
 
@@ -26,7 +25,7 @@ Arquitetura
                             PostgreSQL
                            (Volume persistente)
 
-
+```
 
 Tecnologias utilizadas
 
