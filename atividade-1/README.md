@@ -4,7 +4,7 @@
 O objetivo foi conteinerizar uma aplicação completa utilizando Docker Compose, composta por um frontend React, um backend Flask, um banco de dados PostgreSQL e um servidor NGINX atuando como proxy reverso.
 
 ```bash
-Arquitetura
+Arquitetura da aplicação
 
 
                   Browser
@@ -41,7 +41,7 @@ Tecnologias utilizadas
 ```bash
 Estrutura do projeto
 
-guess_game/
+atividade-1/
 ├── Dockerfile.backend
 ├── docker-compose.yml
 ├── frontend/
@@ -124,7 +124,7 @@ Clonar o repositório:
 
 git clone https://github.com/lucasomx/guess-game-docker-compose.git
 
-cd guess-game-docker-compose
+cd guess-game-docker-compose/atividade1
 
 Construir e iniciar os containers:
 
@@ -141,15 +141,17 @@ Verificar os containers:
 
 docker compose ps
 
-Backend:
-
-curl http://localhost:5000/health
-
-Proxy reverso:
+Verificar o proxy reverso e a comunicação com o backend:
 
 curl http://localhost:8080/api/health
 
-Frontend:
+Resposta esperada:
+
+status: ok
+
+Verificar o Frontend:
+
+Abrir no navegador:
 
 http://localhost:8080
 
