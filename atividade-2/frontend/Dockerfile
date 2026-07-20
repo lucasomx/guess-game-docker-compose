@@ -5,6 +5,8 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
+ENV REACT_APP_BACKEND_URL=/api
+
 COPY . .
 RUN npm run build
 

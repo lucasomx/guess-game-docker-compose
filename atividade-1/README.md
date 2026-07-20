@@ -118,21 +118,90 @@ permitindo que os dados permaneçam disponíveis mesmo após reinicializações 
 
 
 
-## Como executar
+## Como executar localmente
+
+### Pré-requisitos
+
+É necessário possuir:
+
+- Git;
+- Docker;
+- Docker Compose.
 
 Clonar o repositório:
 
+```bash
 git clone https://github.com/lucasomx/guess-game-docker-compose.git
+cd guess-game-docker-compose/atividade-1
+```
 
-cd guess-game-docker-compose/atividade1
+Construir as imagens e iniciar os containers:
 
-Construir e iniciar os containers:
-
+```bash
 docker compose up --build -d --scale backend=3
+```
+
+Verificar os containers:
+
+```bash
+docker compose ps
+```
+
+Abrir o frontend no navegador:
+
+```text
+http://localhost:8080
+```
+
+Verificar a comunicação com o backend por meio do proxy reverso:
+
+```bash
+curl http://localhost:8080/api/health
+```
 
 Para encerrar o ambiente:
 
+```bash
 docker compose down
+```
+
+## Execução em um host remoto
+
+A aplicação também pode ser executada em uma máquina remota ou em uma
+máquina virtual com Docker instalado.
+
+No host remoto:
+
+```bash
+git clone https://github.com/lucasomx/guess-game-docker-compose.git
+cd guess-game-docker-compose/atividade-1
+docker compose up --build -d --scale backend=3
+```
+
+A porta TCP `8080` deve estar liberada no firewall do servidor. Em provedores de nuvem, também deve ser criada uma regra de entrada no grupo de segurança ou firewall da instância.
+
+A aplicação poderá ser acessada por:
+
+```text
+http://IP_DO_SERVIDOR:8080
+```
+
+Por exemplo:
+
+```text
+http://192.168.1.50:8080
+```
+
+O backend não precisa ser exposto diretamente na porta `5000`, pois o NGINX encaminha internamente as requisições recebidas em `/api`.
+
+A variável abaixo é incorporada ao frontend durante a construção da imagem:
+
+```dockerfile
+ENV REACT_APP_BACKEND_URL=/api
+```
+
+O uso do caminho relativo `/api` permite que frontend e backend sejam
+acessados pelo mesmo endereço, tanto localmente quanto em um host remoto.
 
 
 ## Testes
